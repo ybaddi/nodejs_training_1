@@ -1,5 +1,5 @@
 const express = require('express')
-const {response} = require("express");
+const {response, request} = require("express");
 
 const myapp = express();
 
@@ -34,6 +34,46 @@ myapp.get('/', (req,res, next)=>{
    next();
 })
 
+
+myapp.all('/all', (req,res, next)=>{
+    console.log("requet recieved")
+    // console.log(req.method);
+    res.send('my first all express response');
+    // res.write('hello world from express');
+    next();
+})
+
+myapp.get('/ab?cd', (req,res, next)=>{
+    console.log("requet recieved")
+    // console.log(req.method);
+    res.send('my first regex_1 express response');
+    // res.write('hello world from express');
+    next();
+})
+
+// myapp.get('/ab*', (req,res, next)=>{
+//     console.log("requet recieved")
+//     // console.log(req.method);
+//     res.send('my first regex express response');
+//     // res.write('hello world from express');
+//     next();
+// })
+
+
+myapp.get('/home', (req,res, next)=>{
+    console.log("requet recieved")
+    res.send('my first get express response home page');
+    // res.write('hello world from express');
+    next();
+})
+
+myapp.get('/contactus', (req,res, next)=>{
+    console.log("requet recieved")
+    res.send('my first get express response contact page');
+    // res.write('hello world from express');
+    next();
+})
+
 myapp.post('/', (req,res, next)=>{
     console.log("requet recieved")
     res.send('my first post express response');
@@ -41,7 +81,33 @@ myapp.post('/', (req,res, next)=>{
     next();
 })
 
+myapp.post('/home', (req,res, next)=>{
+    console.log("requet recieved")
+    res.send('my first post express response home page');
+    // res.write('hello world from express');
+    next();
+})
 
+myapp.post('/contactus', (req,res, next)=>{
+    console.log("requet recieved")
+    res.send('my first post express response contact page');
+    // res.write('hello world from express');
+    next();
+})
+
+// myapp.get('/*', (req,res, next)=>{
+//     console.log("requet recieved")
+//     res.send('my first get express response default path');
+//     // res.write('hello world from express');
+//     next();
+// })
+//
+// myapp.post('/*', (req,res, next)=>{
+//     console.log("requet recieved")
+//     res.send('my first post express response default path');
+//     // res.write('hello world from express');
+//     next();
+// })
 
 myapp.listen(8000, ()=>{
     console.log("Server is ready on port 8000 .....")

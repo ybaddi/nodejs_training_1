@@ -11,21 +11,46 @@ const myapp = express();
 
 
 const middleware_1 = (request, response, next) => {
-    console.log("midelware_1 ; " , request.url);
+    console.log("midelware_1 authentification " , request.url);
     next();
 }
 
 const middleware_2 = (request, response, next) => {
-    console.log("midelware_2 ; " , request.url);
-    next();
+    console.log("midelware_2 authorisation " , request.url);
+    if(request.url == '/all'){
+        next();
+    }else{
+        console.log("midelware_2 authorisation not authorized");
+    }
+    
 }
 
 const middleware_3 = (request, response, next) => {
-    console.log("midelware_3 ; " , request.url);
+    console.log("midelware_3 accounting " , request.url);
     next();
 }
 
-myapp.use([middleware_1,middleware_2,middleware_3])
+const middleware_4 = (request, response, next) => {
+    console.log("midelware_3 cookies management " , request.url);
+    next();
+}
+
+myapp.use([middleware_1,middleware_2,middleware_3,middleware_4]);
+
+// const extendedSend = (res, send) => {
+//     res.send=send;
+//     send.apply(this,arguments);
+
+// }
+// myapp.use(function(req,res,next){
+//     res.send = extendedSend(res,res.send);
+//     return next();
+// })
+
+myapp.use((req, res, next) => {
+    res.setHeader('X-Powered-By', 'Spring');
+    next();
+});
 
 myapp.get('/', (req,res, next)=>{
     console.log("requet recieved")

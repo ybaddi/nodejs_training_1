@@ -55,10 +55,10 @@ User.sync({force:false}).then(function(){
 // promise if two table created
 .then(()=>{
     var options = {include:{model:Post, as: 'posts'}};
-    return User.findAll(options);
+    return User.findByPk(2,options);
 
-}).then((users)=>{
-    users.forEach((user)=>{
+}).then((user)=>{
+    
         var posts = user.posts;
         posts.forEach((post)=>{        
             console.log("firstname "+user.get('firstname')
@@ -67,5 +67,4 @@ User.sync({force:false}).then(function(){
             ' post_subject: ' + post.subject +
             ' post_content: ' + post.content );
         });
-    });
 });

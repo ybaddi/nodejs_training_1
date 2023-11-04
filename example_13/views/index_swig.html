@@ -1,0 +1,6 @@
+<h1>{{ title }}</h1>
+<ul>
+{% for user in users %}
+    <li{% if loop.first %} class="first"{% endif %}>{{ user.firstName }} {{ user.secondName }}</li>
+{% endfor %}
+</ul>

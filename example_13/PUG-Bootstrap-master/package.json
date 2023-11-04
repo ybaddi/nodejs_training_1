@@ -1,0 +1,36 @@
+{
+  "name": "jade-bootstrap",
+  "version": "1.0.15",
+  "description": "Bootstrap framework written completely using mixins in JADE",
+  "main": "bootstrap.jade",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rajasegar/JADE-Bootstrap.git"
+  },
+  "keywords": [
+    "jade",
+    "bootstrap",
+    "twitter",
+    "bootstrap",
+    "frontend",
+    "ui",
+    "framework",
+    "jade",
+    "mixins"
+  ],
+  "author": "Rajasegar Chandiran",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/rajasegar/JADE-Bootstrap/issues"
+  },
+  "homepage": "https://github.com/rajasegar/JADE-Bootstrap",
+  "devDependencies": {
+    "pug": "^2.0.0-beta11",
+    "jasmine": "^2.4.1",
+    "mocha": "^2.3.4"
+  },
+  "dependencies": {}
+}

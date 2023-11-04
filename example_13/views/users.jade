@@ -2,15 +2,16 @@ extends layout
 
 block content 
     h1 Users 
-    table 
+    table(class="table table-striped")
         thead 
             tr 
                 th First name 
                 th Second name 
                 th Age
         tbody 
-            each user, index in users
-                tr 
+            //- each user, index in users
+            for user in users
+                tr
                     td= user.firstName 
                     td= user.secondName
                     td= user.age

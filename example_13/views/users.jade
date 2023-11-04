@@ -1,0 +1,16 @@
+extends layout
+
+block content 
+    h1 Users 
+    table 
+        thead 
+            tr 
+                th First name 
+                th Second name 
+                th Age
+        tbody 
+            each user, index in users
+                tr 
+                    td= user.firstName 
+                    td= user.secondName
+                    td= user.age

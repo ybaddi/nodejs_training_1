@@ -38,7 +38,7 @@ module.exports.createUser = function(user){
 
 module.exports.getUserByUsername = function(username){
       var query = {username: username};
-      console.log("query : " + query);
+    //   console.log("query : " + query);
       return User.findOne(query);
 }
 
@@ -48,10 +48,10 @@ module.exports.getUserById = function(id){
 }
 
 module.exports.checkPassword = function(passwordToCheck, hash, callback){
-    console.log("check poassword isSame  ")
+    // console.log("check poassword isSame  ")
     bcrypt.compare(passwordToCheck, hash, function(err,isSame){
         if(err) throw err;
-        console.log("isSame : " + isSame)
+        // console.log("isSame : " + isSame)
         callback(err,isSame);
     })
 }

@@ -6,6 +6,7 @@ var router = express.Router();
 // TODO add auth midelware
 
 function verifyAuthentication(req,res,next){
+    console.log("isAuthenticated() : "+ req.isAuthenticated());
     if(req.isAuthenticated()) {
         return next();
     }else{
@@ -14,8 +15,8 @@ function verifyAuthentication(req,res,next){
 }
 
 // routes
-router.get('/',verifyAuthentication, function(){
-
+router.get('/',verifyAuthentication, function(req,res){
+res.render("index");
 }
 )
 

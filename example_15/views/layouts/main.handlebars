@@ -25,9 +25,16 @@
  
  <div class="row">
     <div class="col-lg-12">
-<div class="alert alert-success">{{success_mgs}}</div>
+        {{!-- TODO to test if success or error --}}
+        {{#if success_msg}}
+<div class="alert alert-success">{{success_msg}}</div>
+{{/if}}
+{{#if error_msg}}
 <div class="alert alert-danger">{{error_mgs}}</div>
-<div class="alert alert-danger">{{message}}</div>
+{{/if}}
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
 
         {{!-- TODO alerts --}}
                         {{{body}}}

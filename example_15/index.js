@@ -63,6 +63,16 @@ layoutsDir: __dirname + '/views/layouts',
 //Sets our app to use the handlebars engine
 myApp.set('view engine', 'handlebars');
 
+// config golabal local vars
+myApp.use((req,res,next)=>{
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
+    next();
+})
+
+
 // import routes
 var indexRoutes = require('./routes/indexController');
 var UserRoutes = require('./routes/usersController');

@@ -73,8 +73,11 @@ passport.authenticate('local',{
 })
 ,function(req,res){
 //  TODO check login
-console.log('check login');
-req.flash('error', "error");
+// console.log('check login');
+req.flash('success', "succes login");
+req.login((err)=>{
+    console.log("login");
+})
 res.redirect('/');
 }
 )
@@ -82,7 +85,7 @@ res.redirect('/');
 
 router.get('/logout',function(req,res){
 //  TODO check login
-console.log('check login');
+// console.log('check login');
 req.logout(()=>{res.redirect('/auth/login');});
 }
 )

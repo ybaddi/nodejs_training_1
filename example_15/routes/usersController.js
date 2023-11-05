@@ -11,7 +11,7 @@ var User = require('../models/user');
 // add a auth middelware
 
 router.get('/register',function(req,res){
-    console.log(req.body);
+    // console.log(req.body);
     res.render('register');
 }
 )
@@ -35,7 +35,7 @@ router.post('/register',function(req,res){
         secondname:secondname,
         email:email
     });
-    console.log(newUser);
+    // console.log(newUser);
     User.createUser(newUser);
 
     // TODO redirect to login url
